@@ -1,8 +1,8 @@
 #!/bin/bash
 # author: Matous Vrba
 
-INCREMENT=10
-MINIMAL=5
+INCREMENT=2
+MINIMAL=0
 
 # set the minimal backlight value
 light -N $MINIMAL

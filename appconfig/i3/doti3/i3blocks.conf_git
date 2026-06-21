@@ -383,13 +383,32 @@ separator=true
 # #{ ONDRA's customization
 
 # EPIGEN_ADD_BLOCK_ONDRA {
+# [mediaplayer]
+# label=  
+# instance=spotify
+# interval=5
+# signal=10
+# separator_block_width=15
+# color=#1DB954
+
+[mediaplayer]
+# label=၊၊||၊
+command=~/.i3/mediaplayer.sh
+instance=spotify
+interval=1
+signal=10
+separator=true
+separator_block_width=15
+color=#1DB954
 
 # [mediaplayer]
 # instance=spotify
 # interval=5
 # signal=10
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# color=#1DB954 # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# separator=false
+# separator_block_width=450
 
 # [cpu_usage]
 # label=CPU: 
@@ -561,8 +580,7 @@ separator=true
 
 # [music]
 # interval=1
-# label=Music 
-# command=playerctl --player=spotify,%any metadata --format '({{ playerName }}): {{ emoji(status) }} {{ artist }} - {{ title }}'
+# command=playerctl --player=spotify,%any metadata --format '{{ emoji(status) }} {{ artist }} - {{ title }}'
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_MATOUS }
@@ -600,12 +618,12 @@ separator=true
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 
 # # EPIGEN_ADD_BLOCK_SPOTIFY {
-# # [mediaplayer]
-# # instance=spotify
-# # interval=5
-# # signal=10
-# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# [mediaplayer]
+# instance=spotify
+# interval=5
+# signal=10
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # # EPIGEN_ADD_BLOCK_SPOTIFY }
 
 # [cpu_temperature]
@@ -695,12 +713,12 @@ separator=true
 # #}
 
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
-[load]
-interval=5
-label= 
-command=cat /proc/loadavg | cut -d' ' -f1-3
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# [load]
+# interval=5
+# label= 
+# command=cat /proc/loadavg | cut -d' ' -f1-3
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
 
 # Network interface monitoring
@@ -709,12 +727,12 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 
 # EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
-[iface]
-instance=eth0
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-label= 
+# [iface]
+# instance=eth0
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=10
+# label= 
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # separator=false
 # # EPIGEN_ADD_BLOCK_LENOVO {
@@ -722,25 +740,33 @@ label=
 # # EPIGEN_ADD_BLOCK_LENOVO }
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 
-[iface]
-instance=wlan0
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-label= 
+# [iface]
+# instance=wlan0
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=10
+# label= 
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # separator=false
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 
-[online-status]
-command=ping -c 1 google.com >> /dev/null||echo 'No Internet'
-color=#FF0000
-interval=20
+# [online-status]
+# command=ping -c 1 google.com >> /dev/null||echo 'No Internet'
+# color=#FF0000
+# interval=20
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # separator=false
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 # EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
 
+[battery]
+label=⚡ 
+instance=0
+interval=30
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
 # Volume indicator
 #
 # The first parameter sets the step (and units to display)
@@ -779,12 +805,12 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
-[disk]
-label=SSD 
-#instance=/mnt/data
-interval=30
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# [disk]
+# label=SSD 
+# #instance=/mnt/data
+# interval=30
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
 
 [wifi]
@@ -815,31 +841,24 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-#[cpu_usage]
-#label=CPU 
-#interval=1
-#min_width=CPU: 100.00%
-##separator=false
+# [cpu_usage]
+# label=CPU 
+# interval=1
+# min_width=CPU: 100.00%
+# separator=false
 
 # Battery indicator
 #
 # The battery instance defaults to 0.
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
-[battery]
-label=⚡ 
-instance=0
-interval=30
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
 
 # EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
-[keyboard]
-label= 
-interval=2
-command=~/.i3/show_keyboard_layout.sh
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# [keyboard]
+# label= 
+# interval=2
+# command=~/.i3/show_keyboard_layout.sh
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
 
 # EPIGEN_ADD_BLOCK_GPU {
@@ -876,16 +895,16 @@ full_text=
 command=~/.i3/shutdown_menu -p rofi
 separator=true
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+color=#ffffff
 # Generic media player support
 #
 # This displays "ARTIST - SONG" if a music is playing.
 # Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
-#[mediaplayer]
-#instance=spotify
-#interval=5
-#signal=10
+# [mediaplayer]
+# instance=spotify
+# interval=5
+# signal=10
 
 # OpenVPN support
 #
@@ -898,9 +917,9 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # Support multiple chips, though lm-sensors.
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-#[temperature]
-#label=TEMP 
-#interval=10
+# [temperature]
+# label=TEMP 
+# interval=10
 
 # Key indicators
 #

@@ -10,4 +10,4 @@ CURRENT_LAYOUT=$(xkblayout-state print "%s")
 
 echo $CURRENT_LAYOUT
 
-if [ "$CURRENT_LAYOUT" != "us" ]; then exit 33; fi
+# if [ "$CURRENT_LAYOUT" != "us" ]; then exit 33; fi

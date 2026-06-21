@@ -4,12 +4,12 @@
 
 CURRENT_LAYOUT=$(setxkbmap -query | awk '/layout/{print $2}') 
 
-if [ "$CURRENT_LAYOUT" == "us" ]; then
+if [ "$CURRENT_LAYOUT" == "us, cz" ]; then
 
-  setxkbmap br
+  setxkbmap us intl
 
 else
 
-  setxkbmap us
+  setxkbmap us intl
 
 fi
