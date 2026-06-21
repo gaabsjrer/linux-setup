@@ -57,9 +57,6 @@ while true; do
     ln -fs $APP_PATH/init.lua/ ~/.config/nvim/.init.lua
     ln -fs $APP_PATH/laze-lock.json/ ~/.config/nvim/laze-lock.json
 
-
-		echo -e "# set nvim as the editor\nEDITOR=nvim" >> ~/.bashrc
-
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
