@@ -38,25 +38,27 @@ while true; do
 
     echo Installing neovim
 
-    if [ "$distro" = "18.04" ]; then
-      sudo apt-add-repository -y ppa:neovim-ppa/stable
-      sudo apt-get update
-    fi
+		# neovim installation
+ 		sudo apt install -y software-properties-common
 
-    sudo apt-get -y install neovim
-    mkdir -p ~/.config/nvim/
+		sudo add-apt-repository ppa:neovim-ppa/stable -y
+		sudo apt-get update
+		sudo apt-get install neovim
 
-    if [ "$distro" = "18.04" ]; then
-      sudo -H pip install wheel
-    fi
-    sudo -H pip3 install wheel
+		# set .config nvim folder
+    cd $APP_PATH/../../submodules/nvim
+    mkdir -p ~/.config/nvim
 
-    sudo -H pip3 install neovim
-    sudo -H pip3 install neovim-remote
-
-    # link the configuration
-    ln -sf ~/.vimrc ~/.config/nvim/init.vim
     ln -sf $APP_PATH/../vim/dotvim/* ~/.config/nvim/
+
+    ln -sf $APP_PATH/doc/* ~/.config/nvim/doc
+    ln -sf $APP_PATH/lua/* ~/.config/nvim/lua
+    ln -fs $APP_PATH/.stylua.toml/ ~/.config/nvim/.stylua.toml
+    ln -fs $APP_PATH/init.lua/ ~/.config/nvim/.init.lua
+    ln -fs $APP_PATH/laze-lock.json/ ~/.config/nvim/laze-lock.json
+
+
+		echo -e "# set nvim as the editor\nEDITOR=nvim" >> ~/.bashrc
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

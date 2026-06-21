@@ -77,6 +77,9 @@ bash $APPCONFIG_PATH/ranger/install.sh $subinstall_params
 # install VIM
 bash $APPCONFIG_PATH/vim/install.sh $subinstall_params
 
+# install NVIM
+bash $APPCONFIG_PATH/nvim/install.sh $subinstall_params
+
 # install HTOP-VIM
 bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
 
