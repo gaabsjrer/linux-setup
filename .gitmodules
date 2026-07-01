@@ -35,7 +35,7 @@
 	path = submodules/vim
 	url = https://github.com/vim/vim
 [submodule "submodules/nvim"]
-	path = submodules/vim
+	path = submodules/nvim
 	url = https://github.com/gaabsjrer/kickstart.nvim.git
 [submodule "submodules/git-sync"]
 	path = submodules/git-sync
